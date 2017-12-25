@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	
+		<title>CA_CULFEST'18</title>
+		{% include "head.html" %}
+		
+		<style type="text/css">
+			{% load static %}
+			body{
+			background-color: black ;
+		}
+		</style>
+		<script type="text/javascript">
+			 $(document).ready(function(){
+
+			    $('.modal').modal();
+
+			  });
+		</script>
+	</head>
+	
+	<body class="style-14">
+
+			<a id="logins" href="{% url 'social:begin' 'facebook' %}" class="waves-effect waves-light btn-large " style="font-weight:bold;letter-spacing:0.2rem;position:absolute;top:20px;right:10px;background-color:rgba(255,255,255,0.2)">Facebook Login</a>
+			<a id="guides" href="#modal1" class="waves-effect waves-light btn-large modal-trigger " style="font-weight:bold;letter-spacing:0.2rem;position:absolute;top:20px;left:10px;background-color:rgba(255,255,255,0.2)">Guidelines</a>
+
+			<div class="row" id="mob_login">
+				<div class="col s12 center">
+					<br/>
+					<a href="{% url 'social:begin' 'facebook' %}" class="waves-effect waves-light btn-large " style="font-weight:bold;letter-spacing:0.2rem;background-color:rgba(255,255,255,0.2)">Facebook Login</a>
+				</div>
+			</div>
+
+			
+
+			<div id="modal1" class="modal">
+		    <div class="modal-content center">
+		      <h4>GUIDELINES, </h4>
+		      <h4>INDIVIDUAL SCORE & RANK DETAILS</h4>
+		      <br/><br/>
+		      <h5>COMING SOON!!</h5>
+		    </div>
+		    <div class="modal-footer">
+		      
+		    </div>
+		  	</div>
+		<div class="row">
+		<div class="col s12 m12 l12">
+		<center><img id="logoimg" src="{% static "images/theme_logo1.png" %}" width="100%" style="margin-top:7%;height:300px" /></center>
+		<center><p id="culfest18" style="font-size:40px;color:#fff;margin:0">CULFEST 2018</p></center>
+		<center><p id="ca" style="font-size:40px;color:#fff">CAMPUS AMBASSADOR PROGRAM</p></center>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col l3"></div>
+        <div class="col s12 m12 l6 center">
+          <div class="card transparent darken-1">
+            <div class="card-content white-text">
+              <span class="card-title" ></span>
+              <p style="font-size:20px">Hello guys,</p>
+			  <p style="font-size:25px">Are you people interested in being a part of Culfest..? </p>
+			  <p style="font-size:25px">Do you want to help us in organising this Mega event..??</p><br/>
+			<p style="font-size:20px">	Then, here is a golden opportunity for you to be one among us...! You can promote our fest in your college by being a Campus Ambassador. Be a part of it and bring more n more participation. In short, you will be a representative of Culfest in your city and college. Anyone with good communication and managerial skills can apply for this... For more details you may go through our guidelines. </p><br/>
+				<p style="font-size:25px">So hurry up, and grab the opportunity to make Culfest bigger and better..!</p>
+				<div class="row" id="mob_guide">
+				<div class="col s12 center">
+					<br/>
+					<a href="#modal1" class="waves-effect waves-light btn-large modal-trigger " style="font-weight:bold;letter-spacing:0.2rem;background-color:rgba(255,255,255,0.2)">Guidelines</a>
+				</div>
+				</div>
+			  </p>
+            </div>   
+          </div> 
+        </div>
+        <div class="col l3"></div>
+      </div>
+
+	</body>
+
+</html>
+
+
+

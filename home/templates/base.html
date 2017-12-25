@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	
+		<title>{% block title %} CA_CULFEST'18 {% endblock %}</title>
+
+		{% include "head.html" %}
+
+		{% block head %}
+		
+			<script type="text/javascript">
+			window.fbAsyncInit = function() {
+			  FB.init({
+			    appId      : '1358312630945399',
+			    cookie     : true,  // enable cookies to allow the server to access 
+			                        // the session
+			    xfbml      : true,  // parse social plugins on this page
+			    version    : 'v2.8' // use graph api version 2.8
+					});
+				}
+			</script>
+
+			<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5" async></script>
+
+		{% endblock %}
+
+	</head>
+
+	<body class="style-14">
+	{% load static %}
+		<div class="row">
+			<div class="col l1 "></div>
+			<div class="col s12 m12 l10 " style="background-color:rgba(0,0,0,0.3)">
+				<div class="row">
+					<a href="http://localhost:8000/logout" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="logout">Logout
+				    	<i class="material-icons right">send</i>
+				    </a>
+					<div class="col l4 "></div>
+					<div class="col s12 m12 l4"  >
+				        <div class="card-panel grey lighten-5 z-depth-1" >
+				          <div class="row valign-wrapper">
+				          	<div class="col s1">
+				            </div>
+				            <div class="col s4">
+				              <img  class="circle responsive-img" src="http://graph.facebook.com/{{ request.user.username}}/picture?type=large"/> <!-- notice the "circle" class -->
+				            </div>
+				            <div class="col s1">
+				            </div>
+				            <div class="col s6">
+				              <span class="black-text cardtext">
+				               <span style="float:left">{{ request.user.first_name}} {{ request.user.last_name}}</span><br/>
+				               <span style="float:left;font-size:15px;padding-top:0.1rem">CFID: <span style="font-weight:lighter;">{{request.user.profile.serialno}}</span></span><br/>
+				               <span style="float:left;font-size:15px">SCORE: <span style="font-weight:lighter;">NA</span></span>&nbsp<br/>
+				               <span style="float:left;font-size:15px">RANK: <span style="font-weight:lighter;">NA</span></span>
+				              </span>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+					<div class="col l4"></div>
+				</div>
+			</div>
+			<div class="col l1 "></div>
+		</div>
+		<div class="row base_temp">
+			<p id="ins" class="center" style="font-weight:bold;font-size:15px;">SCROLL BELOW</p>
+			<ul style="height:60px!important" id="tabs-swipe-demo" class="col s12 m12 l12 tabs">
+				<div class="row style-14">
+		   			<li class="tab col s12 m12 l3 " ><a class="active" href="#test-swipe-1">
+		   				<img src="{% static "images/fb_share.png" %}" class="image_icon" />
+		   				<span>FACEBOOK SHARE</span>
+		   				</a></li>
+		    		<li class="tab col s12 m12 l3" ><a  href="#test-swipe-2">
+		   				<img src="{% static "images/settings.png" %}" class="image_icon" />
+		   				<span>ACCOUNT SETTINGS</span>
+		    		</a></li>
+		    		<li class="tab col s12 m12 l3" ><a href="#test-swipe-3">
+		   				<img src="{% static "images/contacts.png" %}" class="image_icon" />
+		   				<span>CONTACT US</span>
+		    		</a></li>
+		    		<li class="tab col s12 m12 l3" ><a href="#test-swipe-4">
+		   				<img src="{% static "images/screenshot.png" %}" class="image_icon" />
+		   				<span>UPLOAD SCREENSHOT</span>
+		    		</a></li>
+	    		</div>
+	  		</ul>
+  			
+		  		<div id="test-swipe-1" class="col s12 m12 l12 grey">
+		  			<div class="container custom">
+		  				<br />
+		  				<p class="center" style="font-size:30px;color:#fff">LIKE,   COMMENT   AND   SHARE</p><br/>
+			  			<center>
+				  			<div class="fb-post" width:auto; data-href="https://www.facebook.com/utk.nitjsr/photos/a.417765168327016.1073741828.260118660758335/1230611523709039/?type=3"
+		      					data-width="250" data-show-text="false">
+		      					</div>
+		      			</center>
+		      			<center>
+		      			<img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:90px;height:90px;bottom:60px;left:110px;background-color:#fff" />
+		      			</center>
+		      			<br />
+		      			<br />
+		      			<center>
+				  			<div class="fb-post" data-href="https://www.facebook.com/Ojassnitjamshedpur/posts/1724101827652343"
+		      					data-width="250" data-show-text="false"></div>
+		      			</center>
+		      			<center>
+		      			<img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:90px;height:90px;bottom:60px;left:110px;background-color:#fff" />
+		      			</center>
+		      			<br/>
+		      			<br/>
+		      		</div>
+
+					
+      				<!--button onclick="javascript:logout();">Logout from Facebook</button>
+      				<script type="text/javascript">
+			      		function logout() {
+			            FB.getLoginStatus(function (response) {
+			  				if (response && response.status === 'connected') {
+			    			FB.logout();
+			    			window.location = "http://localhost:8000/";
+			 				 }
+						});
+			        }
+    				</script-->
+
+		  		</div>
+			    <div id="test-swipe-2" class="col s12 m12 l12 grey">
+			    <div class="container" style="height:770px;background-color: rgba(0,0,0,0.5);padding:20px;">
+			  			<center>
+			    	<div id="success_div" style="color:#fff"></div>
+			    	{% if messages %}
+					  <div class="messages">
+					    {% for message in messages %}
+					      <p class="{{ message.tags }}">{{ message }}</p>
+					    {% endfor %}
+					  </div>
+					{% endif %}
+					<br/>
+					<form  id="myform" action="" method="post" class="col s12 center" novalidate>
+					  {% csrf_token %}
+					 {% for field in user_form %}
+					 
+					    <div class="row">
+        					<div class="input-field col s12 m12 l12 ">
+					        {{ field.errors }}
+					        <center>
+					        {{ field.label_tag }}
+							</center>
+					         {{ field }}
+					    	</div>
+					    </div>
+					
+					{% endfor %}
+					{% for field in profile_form %}
+					
+					    <div class="row">
+        					<div class="input-field col s12 m12 l12 ">
+					        {{ field.errors }}
+					        <center>
+					        {{ field.label_tag }}
+							</center>
+					         {{ field }}
+					    	</div>
+					    </div>
+
+					{% endfor %}
+					<br/>
+					  <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-bottom:10px;">Submit
+    						<i class="material-icons right">send</i>
+  					  </button>
+
+					</form>
+
+					</center>
+
+				</div>
+			    </div>
+			    <div id="test-swipe-3" class="col s12 m12 l12 grey">
+			    	<div class="container custom">
+			    		<br/>
+				    	<div class="row">
+				    		<div class="col s1 m1 l2"></div>
+					        <div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px">
+					            	<div class="card-image">
+					              		<img src="{% static "images/madhukar1.jpg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>MADHUKAR</b></p>
+					              		<P>APP HEAD</P>
+					              		<P>madhukarrana1997@gmail.com</P>
+					              		<P></P>
+					            	</div>
+					          	</div>
+					        </div>
+
+					        <div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px">
+					            	<div class="card-image">
+					              		<img src="{% static "images/Ajeet.jpeg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>AJEET KUMAR</b></p>
+					              		<P>PR CORE MEMBER</P>
+					              		<P></P>
+					              		<P>+91 85788 90673</P>
+					            	</div>
+					          	</div>
+					        </div>
+
+							<div class="col s1 m1 l2"></div>
+
+					    </div>
+
+						<div class="row">
+				    		<div class="col s1 m1 l2"></div>
+					        <div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px">
+					            	<div class="card-image">
+					              		<img src="{% static "images/Aadersh.jpg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>AADERSH AGARWAL</b></p>
+					              		<P>PLANNING AND DEVELOPMENT</P>
+					              		<P>adershagarwal@gmail.com</P>
+					              		<P>+91 72098 91533</P>
+					            	</div>
+					          	</div>
+					        </div>
+
+					        <div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px">
+					            	<div class="card-image">
+					              		<img src="{% static "images/poras1.jpg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>PORAS THAVNANI</b></p>
+					              		<P>PLANNING AND DEVELOPMENT</P>
+					              		<P>poras.thavnani@gmail.com</P>
+					              		<P>+91 87973 61542</P>
+					            	</div>
+					          	</div>
+					        </div>
+
+							<div class="col s1 m1 l2"></div>
+
+					    </div>
+
+
+					</div>
+			    </div>
+
+			     <div id="test-swipe-4" class="col s12 m12 l12 grey">
+			     	<div class="container custom">
+			  			<center>
+			  				<div id="success_message" style="color:#fff"></div>
+					     	<form id="upload_form" method="post" enctype="multipart/form-data" novalidate>
+							    {% csrf_token %}
+							    {% for field in form %}
+							 	
+							    <div class="row">
+		        					<div class="input-field col s12 m12 l12 ">
+							        {{ field.errors }}
+							        <center>
+							        {{ field.label_tag }}
+									</center>
+							         {{ field }}
+							    	</div>
+							    </div>
+							    <br/>
+							
+								{% endfor %}
+								<div class="row">
+									<div class="col s2"></div>
+									<div class="col s8">
+									<p class="center">PREVIEW:</p>
+									<img  id="img_id" src="#" width="300px" style="float:middle" height="200px" /><br/><br/>
+								    <button class="btn waves-effect waves-light" type="submit" name="upload">Submit
+								    <i class="material-icons right">send</i>
+								    </button>
+								    <br/><br/>
+								    </div>
+								    <div class="col s2"></div>
+								</div>
+							</form>
+						</center>
+					</div>
+			    </div>
+		    
+		</div>
+
+
+		{% block body %}
+		{% endblock %}
+		
+		
+		{% load staticfiles %}
+		<script type="text/javascript" src={% static "js/default.js" %}></script>
+		
+
+	</body>
+
+
+</html>
+
+
+

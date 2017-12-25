@@ -1,0 +1,194 @@
+body{
+	overflow-x: hidden;
+}
+.custom{
+	background-color: rgba(0,0,0,0.5);
+
+}
+.image_icon{
+	width:50px;
+	height:50px;
+	float:left;
+}
+li{
+	background-color: rgba(0,0,0,0.1);
+	letter-spacing: 0.2rem;
+	height: 100%!important;
+}
+.base_temp{
+	height:auto;
+}
+.userpic{
+	float: left;
+	height:100px;
+	width:100px;
+}
+.row, .col {
+	padding:0!important;
+	margin:0!important;
+	overflow-x: hidden;
+}
+.tabs{
+	overflow-x: hidden;
+}
+.tabs .tab a{
+	color:black!important;
+}
+.tabs .tab a.active{
+	background-color:rgba(0,0,0,0.5);
+	color:#fff!important;
+	font-weight: bold;
+}
+.tabs .tab a:hover{
+	background-color:rgba(0,0,0,0.3);
+	color:#fff!important;
+	font-weight: bold;
+}
+.indicator{
+	background-color: #000!important;
+}
+.cardtext{
+	margin-left: 2em;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	font-size: 20px;
+}
+label{
+	color:black!important;
+	font-weight: bold;
+}
+input{
+	text-align: center;
+	background-color: #fff!important;
+}
+ .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+ .input-field input[type=email]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+
+.card .card-image img{
+	width:60%;
+	border-radius: 50% 50%;
+	margin: 0 auto;
+}
+
+
+.style-14::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+	background-color: #CCCCCC;
+}
+
+.style-14::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+.style-14::-webkit-scrollbar-thumb
+{
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(90deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 25%,
+        transparent 100%,
+        rgba(0, 0, 0, 1) 75%,transparent)
+}
+
+
+@media only screen and (min-width: 501px) {
+	#ins{
+    	display: none;
+    }
+    #mob_login{
+    	display: none;
+    }
+    #mob_guide{
+    	display: none;
+    }
+    #logins{
+    	display: block;
+    }
+    #guides{
+    	display: block;
+    }
+    #logoimg{
+    	height: 300px!important;
+    }
+    #ca{
+    	font-size: 40px!important;
+    }
+    #culfest18{
+    	font-size: 40px!important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .container {
+        width:100%!important;
+    }
+    .card-panel {
+    	padding: 12px;
+    }
+	#ins{
+    	display: block;
+    }
+    #mob_login{
+    	display: block;
+    }
+    #mob_guide{
+    	display: block;
+    }
+    #logins{
+    	display: none;
+    }
+    #guides{
+    	display: none;
+    }
+    #logoimg{
+    	height: 250px!important;
+    }
+    #ca{
+    	font-size: 30px!important;
+    }
+    #culfest18{
+    	font-size: 30px!important;
+    }
+}
+@media only screen and (max-width: 359px) {
+	  .container {
+        width:100%!important;
+    }
+	 .card-panel {
+    	padding: 0px;
+    }
+
+    #ins{
+    	display: block;
+    }
+    #mob_login{
+    	display: block;
+    }
+    #mob_guide{
+    	display: block;
+    }
+    #logins{
+    	display: none;
+    }
+    #guides{
+    	display: none;
+    }
+    #logoimg{
+    	height: 200px!important;
+    }
+    #ca{
+    	font-size: 30px!important;
+    }
+    #culfest18{
+    	font-size: 30px!important;
+    }
+}
+

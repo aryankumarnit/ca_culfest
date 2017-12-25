@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+	{% block title %} DASHBOARD_CULFEST {% endblock %}
+
+	{% block head %}
+
+		<script type="text/javascript">
+			window.fbAsyncInit = function() {
+			  FB.init({
+			    appId      : '1358312630945399',
+			    cookie     : true,  // enable cookies to allow the server to access 
+			                        // the session
+			    xfbml      : true,  // parse social plugins on this page
+			    version    : 'v2.8' // use graph api version 2.8
+			});
+		}
+		</script>
+	{% endblock %}
+
+	{% block body %}
+
+	<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5" async></script>  
+    <div class="fb-post" 
+      data-href="https://www.facebook.com/Ojassnitjamshedpur/posts/1724101827652343"
+      data-width="250" data-show-text="false"></div>
+      <br />
+      <button onclick="javascript:logout();">Logout from Facebook</button>
+      <script type="text/javascript">
+      		function logout() {
+            FB.getLoginStatus(function (response) {
+  				if (response && response.status === 'connected') {
+    			FB.logout();
+    			window.location = "http://localhost:8000/";
+ 				 }
+			});
+        }
+    </script>
+
+    {% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	{% include "head.html" %}
+</head>
+<style type="text/css">
+	body{
+		background-color: rgba(0,0,0,0.1);
+	}
+	.headerss{
+	font-size: 6rem;
+	font-weight: bold;
+	color: rgba(0,0,0,0.5);
+}
+</style>
+<body>
+	<div class="headerss center">REGISTER</div>
+	 <div class="container custom" style="padding-top:5px">
+			  			<center>
+	{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<form method="post" class="col s12 center" novalidate >
+  {% csrf_token %}
+ {% for field in user_form %}
+        {{ field.errors }}
+       <div class="row">
+       		<div class="input-field col s12 m12 l12 ">
+       	<center>
+        {{ field.label_tag }}
+		</center>
+         {{ field }}
+    		</div>
+    	</div>
+{% endfor %}
+{% for field in profile_form %}
+        {{ field.errors }}
+         <div class="row">
+        	<div class="input-field col s12 m12 l12 ">
+        <center>
+        {{ field.label_tag }}
+		</center>
+         {{ field }}
+        	</div>
+        </div>
+{% endfor %}
+	    <button class="btn waves-effect waves-light" type="submit" name="register" style="margin-bottom:10px;">Submit
+			<i class="material-icons right">send</i>
+		</button>
+</form>
+	</center>
+	</div>
+</body>
+</html>
