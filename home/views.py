@@ -1,14 +1,19 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.db import transaction
-from .forms import ProfileForm, UserForm, DocumentForm
+from .forms import ProfileForm, UserForm, DocumentForm, FileForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
-from .models import Profile, Document
+from .models import Profile, Document, File
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.contrib.auth import logout as auth_logout
 import re
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.http import Http404
+
 # Create your views here.
 
 
@@ -25,18 +30,31 @@ def base(request):
         profile = Profile(user=request.user)
 
     if request.method == 'POST':
+        if request.POST['hidden'] == 'files':
+            file = File()
+            file.user = request.user
+            fileform = FileForm(data=request.POST, files=request.FILES, instance=file)
 
-        document = Document()
-        document.user = request.user
-        form = DocumentForm(data=request.POST, files=request.FILES, instance=document)
+            if fileform.is_valid():
+                fileform.save()
+                data = {
+                    'result': 'success',
+                    'message': 'Contact uploaded successfully!!',
+                }
+                return JsonResponse(data)
 
-        if form.is_valid():
-            form.save()
-            data = {
-                'result': 'success',
-                'message': 'Image uploaded successfully!!',
-            }
-            return JsonResponse(data)
+        if request.POST['hidden'] == 'upload':
+            document = Document()
+            document.user = request.user
+            form = DocumentForm(data=request.POST, files=request.FILES, instance=document)
+
+            if form.is_valid():
+                form.save()
+                data = {
+                    'result': 'success',
+                    'message': 'Image uploaded successfully!!',
+                }
+                return JsonResponse(data)
 
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, instance=profile)
@@ -88,10 +106,12 @@ def base(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
         form = DocumentForm()
+        fileform = FileForm()
     return render(request, 'base.html', {
         'user_form': user_form,
         'profile_form': profile_form,
         'form': form,
+        'fileform': fileform,
     })
 
 
@@ -150,7 +170,18 @@ def update_profile(request):
     })
 
 
+@login_required
 def logout(request):
     """Logs out user"""
     auth_logout(request)
     return render(request, 'index.html')
+
+
+def download(request):
+    file_path = os.path.join(settings.MEDIA_ROOT, "ca_culfest.xlsx")
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404

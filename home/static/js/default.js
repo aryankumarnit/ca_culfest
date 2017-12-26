@@ -38,7 +38,7 @@ $(function() {
     $('#upload_form').submit(upload);
 });
 
-$('input[type=file]').change(function () {
+$('.imgupload').change(function () {
      if (this.files && this.files[0]) {
      	//alert("a");
                 var reader = new FileReader();
@@ -50,6 +50,36 @@ $('input[type=file]').change(function () {
                 reader.readAsDataURL(this.files[0]);
             }
 });
+
+
+function fileupload(event) {
+event.preventDefault();
+var data = new FormData($('#upload_files').get(0));
+
+$.ajax({
+    url: $(this).attr('action'),
+    type: $(this).attr('method'),
+    data: data,
+    cache: false,
+    processData: false,
+    contentType: false,
+    success: function(data) {
+    	 if(data['result']=="success")
+         {
+         	$('#success_files').html(data['message']);
+         }
+     	 else
+     	 $('#success_files').html("Error Uploading Contact");
+    }
+});
+return false;
+}
+
+$(function() {
+    $('#upload_files').submit(fileupload);
+});
+
+
 
 
 $("label[for=id_document]").hide();

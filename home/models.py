@@ -47,10 +47,20 @@ def save_user_profile(sender, instance, **kwargs):
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.user.username, filename)
+    if isinstance(instance, Document):
+        return 'user_{0}/{1}'.format(instance.user.username, filename)
+    if isinstance(instance, File):
+        return 'user_files_{0}/{1}'.format(instance.user.username, filename)
 
 
 class Document(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.CharField(max_length=855, blank=True)
+    document = models.FileField(upload_to=user_directory_path)
+    uploaded_at = models.DateTimeField(default=timezone.now)
+
+
+class File(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=855, blank=True)
     document = models.FileField(upload_to=user_directory_path)

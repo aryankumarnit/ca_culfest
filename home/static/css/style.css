@@ -116,9 +116,7 @@ input{
     #guides{
     	display: block;
     }
-    #logoimg{
-    	height: 300px!important;
-    }
+    
     #ca{
     	font-size: 40px!important;
     }
@@ -148,9 +146,7 @@ input{
     #guides{
     	display: none;
     }
-    #logoimg{
-    	height: 100px!important;
-    }
+   
     #ca{
     	font-size: 25px!important;
     }
@@ -181,9 +177,7 @@ input{
     #guides{
     	display: none;
     }
-    #logoimg{
-    	height: 100px!important;
-    }
+    
     #ca{
     	font-size: 20px!important;
     }

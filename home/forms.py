@@ -1,7 +1,8 @@
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import Profile, Document
+from .models import Profile, Document, File
 from django.utils.translation import gettext_lazy as _
+from django import forms
 
 
 class UserForm(ModelForm):
@@ -77,4 +78,23 @@ class DocumentForm(ModelForm):
         fields = ('description', 'document', )
         labels = {
             'description': _('Image Description '),
+        }
+        widgets = {
+            'document': forms.FileInput(attrs={'class': 'imgupload'}),
+        }
+
+
+class FileForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(FileForm, self).__init__(*args, **kwargs)
+        self.fields['document'].required = True
+
+    class Meta:
+        model = File
+        fields = ('description', 'document', )
+        labels = {
+            'description': _('File Description '),
+        }
+        widgets = {
+            'document': forms.FileInput(attrs={'class': 'fileupload'}),
         }
