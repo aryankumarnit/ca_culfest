@@ -160,8 +160,8 @@ input{
     	padding-top: 20px!important;
     }
     #img_id{
-    	width: 200px;
-    	height: 100px;
+    	width: 200px!important;
+    	height: 100px!important;
     }
 }
 @media only screen and (max-width: 359px) {
@@ -203,8 +203,8 @@ input{
     	padding-top: 20px!important;
     }
     #img_id{
-    	width: 200px;
-    	height: 100px;
+    	width: 200px!important;
+    	height: 100px!important;
     }
 
 }
