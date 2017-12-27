@@ -40,7 +40,7 @@ class ProfileForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         # Making name required
-        self.fields['alt_email'].required = True
+
         self.fields['college'].required = True
         self.fields['phone'].required = True
         self.fields['year_of_grad'].required = True
@@ -93,7 +93,7 @@ class FileForm(ModelForm):
         model = File
         fields = ('description', 'document', )
         labels = {
-            'description': _('File Description '),
+            'description': _('Contacts Description '),
         }
         widgets = {
             'document': forms.FileInput(attrs={'class': 'fileupload'}),

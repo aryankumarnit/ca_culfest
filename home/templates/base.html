@@ -49,12 +49,12 @@
 				            <div class="col s1">
 				            </div>
 				            <div class="col s6">
-				              <span class="black-text cardtext">
-				               <span style="float:left">{{ request.user.first_name}} {{ request.user.last_name}}</span><br/>
-				               <span style="float:left;font-size:15px;padding-top:0.1rem">CFID: <span style="font-weight:lighter;">{{request.user.profile.serialno}}</span></span><br/>
-				               <span style="float:left;font-size:15px">SCORE: <span style="font-weight:lighter;">NA</span></span>&nbsp<br/>
-				               <span style="float:left;font-size:15px">RANK: <span style="font-weight:lighter;">NA</span></span>
-				              </span>
+				              
+				               <span style="float:left;font-weight:bold;font-size:21px">{{ request.user.first_name}} {{ request.user.last_name}}</span><br/>
+				               <span style="float:left;font-size:15px;padding-top:0.1rem;font-weight:bold;font-size:18px">CFID: <span style="font-weight:lighter;">{{request.user.profile.serialno}}</span></span><br/>
+				               <!--span style="float:left;font-size:15px">SCORE: <span style="font-weight:lighter;">NA</span></span>&nbsp<br/>
+				               <span style="float:left;font-size:15px">RANK: <span style="font-weight:lighter;">NA</span></span-->
+				              
 				            </div>
 				          </div>
 				        </div>
@@ -67,24 +67,24 @@
 			<div class="col l1 "></div>
 		</div>
 		<div class="row base_temp">
-			<p id="ins" class="center" style="font-weight:bold;font-size:15px;">SCROLL BELOW</p>
-			<ul style="height:60px!important" id="tabs-swipe-demo" class="col s12 m12 l12 tabs">
-				<div class="row style-14">
-		   			<li class="tab col s12 m12 l3 " ><a class="active" href="#test-swipe-1">
+			
+			<ul style="height:60px" id="tabs-swipe-demo" class="col s12 m12 l12 tabs">
+				<div id="tabrow" class="row style-14">
+		   			<li id="tab1" class="tab col s12 m12 l3 " ><a id="taba1" class="active" href="#test-swipe-1">
 		   				<img src="{% static "images/fb_share.png" %}" class="image_icon" />
 		   				<span>FACEBOOK SHARE</span>
 		   				</a></li>
-		    		<li class="tab col s12 m12 l3" ><a  href="#test-swipe-2">
+		    		<li id="tab2" class="tab col s12 m12 l3" ><a id="taba2"  href="#test-swipe-2">
 		   				<img src="{% static "images/settings.png" %}" class="image_icon" />
 		   				<span>ACCOUNT SETTINGS</span>
 		    		</a></li>
-		    		<li class="tab col s12 m12 l3" ><a href="#test-swipe-3">
+		    		<li id="tab3" class="tab col s12 m12 l3" ><a id="taba3" href="#test-swipe-3">
 		   				<img src="{% static "images/contacts.png" %}" class="image_icon" />
 		   				<span>CONTACT US</span>
 		    		</a></li>
-		    		<li class="tab col s12 m12 l3" ><a href="#test-swipe-4">
-		   				<img src="{% static "images/screenshot.png" %}" class="image_icon" />
-		   				<span>UPLOAD SCREENSHOT</span>
+		    		<li id="tab4" class="tab col s12 m12 l3" ><a id="taba4" href="#test-swipe-4">
+		   				<img src="{% static "images/file.png" %}" class="image_icon" />
+		   				<span>UPLOAD FILES</span>
 		    		</a></li>
 	    		</div>
 	  		</ul>
@@ -140,7 +140,7 @@
 
 		  		</div>
 			    <div id="test-swipe-2" class="col s12 m12 l12 grey">
-			    <div class="container" style="height:770px;background-color: rgba(0,0,0,0.5);padding:20px;">
+			    <div class="container" style="height:1270px;background-color: rgba(0,0,0,0.5);padding:20px;">
 			  			<center>
 			    	<div id="success_div" style="color:#fff"></div>
 			    	{% if messages %}
@@ -160,6 +160,8 @@
 					        {{ field.errors }}
 					        <center>
 					        {{ field.label_tag }}
+					        <br/>
+					        <br/>
 							</center>
 					         {{ field }}
 					    	</div>
@@ -172,6 +174,8 @@
         					<div class="input-field col s12 m12 l12 ">
 					        {{ field.errors }}
 					        <center>
+					        <br/>
+					        <br/>
 					        {{ field.label_tag }}
 							</center>
 					         {{ field }}
@@ -194,18 +198,18 @@
 			    	<div class="container custom">
 			    		<br/>
 				    	<div class="row">
-				    		<div class="col s1 m1 l2"></div>
-					        <div class="col s12 m12 l4">
+				    		
+							<div class="col s12 m12 l4">
 					          	<div class="card" style="height:300px;padding:20px">
 					            	<div class="card-image">
-					              		<img src="{% static "images/madhukar1.jpg" %}" class="responsive-img" style="height:150px" />
+					              		<img src="{% static "images/Chetan.jpg" %}" class="responsive-img" style="height:150px" />
 					              		
 					            	</div>
 					            	<div class="card-content center">
-					              		<p><b>MADHUKAR</b></p>
-					              		<P>APP HEAD</P>
-					              		<P>madhukarrana1997@gmail.com</P>
-					              		<P></P>
+					              		<p><b>CHETAN UMRAO</b></p>
+					              		<P>GENERAL SECRETARY</P>
+					              		<P>gensec.cf@nitjsr.ac.in</P>
+					              		<P>+91 94303 63326</P>
 					            	</div>
 					          	</div>
 					        </div>
@@ -217,20 +221,35 @@
 					              		
 					            	</div>
 					            	<div class="card-content center">
-					              		<p><b>AJEET KUMAR</b></p>
-					              		<P>PR CORE MEMBER</P>
-					              		<P></P>
+					              		<p><b>AJEET GUPTA</b></p>
+					              		<P>PR HEAD</P>
+					              		<P>culsec.sc@nitjsr.ac.in</P>
 					              		<P>+91 85788 90673</P>
 					            	</div>
 					          	</div>
 					        </div>
 
-							<div class="col s1 m1 l2"></div>
+					        <div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px">
+					            	<div class="card-image">
+					              		<img src="{% static "images/Rajiv.jpeg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>RAJIV KUMAR</b></p>
+					              		<P>JOINT SECRETARY</P>
+					              		<P>+91 95700 40029</P>
+					              		<P></P>
+					            	</div>
+					          	</div>
+					        </div>
+
+							
 
 					    </div>
 
 						<div class="row">
-				    		<div class="col s1 m1 l2"></div>
+				    		
 					        <div class="col s12 m12 l4">
 					          	<div class="card" style="height:300px;padding:20px">
 					            	<div class="card-image">
@@ -239,9 +258,9 @@
 					            	</div>
 					            	<div class="card-content center">
 					              		<p><b>AADERSH AGARWAL</b></p>
-					              		<P>PLANNING AND DEVELOPMENT</P>
-					              		<P>adershagarwal@gmail.com</P>
+					              		<P>ONLINE EVENTS/ PRO-NITES</P>
 					              		<P>+91 72098 91533</P>
+					              		<P></P>
 					            	</div>
 					          	</div>
 					        </div>
@@ -254,14 +273,28 @@
 					            	</div>
 					            	<div class="card-content center">
 					              		<p><b>PORAS THAVNANI</b></p>
-					              		<P>PLANNING AND DEVELOPMENT</P>
-					              		<P>poras.thavnani@gmail.com</P>
+					              		<P>ONLINE EVENTS/ PRO-NITES</P>
 					              		<P>+91 87973 61542</P>
+					              		<P></P>
 					            	</div>
 					          	</div>
 					        </div>
-
-							<div class="col s1 m1 l2"></div>
+							
+							<div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px">
+					            	<div class="card-image">
+					              		<img src="{% static "images/rospic.jpg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>ROSHAN KUMAR</b></p>
+					              		<P>WEB DEVELOPER</P>
+					              		<P>+91 9204092799</P>
+					              		<P></P>
+					            	</div>
+					          	</div>
+					        </div>
+							
 
 					    </div>
 
@@ -270,7 +303,8 @@
 			    </div>
 
 			     <div id="test-swipe-4" class="col s12 m12 l12 grey">
-			     	<div class="container custom">
+			     	<div class="container custom center">
+						<p style="color:#fff;font-size:25px">UPLOAD SCREENSHOT</p>
 			  			<center>
 			  				<div id="success_message" style="color:#fff"></div>
 					     	<form id="upload_form" method="post" enctype="multipart/form-data" novalidate>
@@ -282,6 +316,7 @@
 		        					<div class="input-field col s12 m12 l12 ">
 							        {{ field.errors }}
 							        <center>
+							        	<br/><br/>
 							        {{ field.label_tag }}
 									</center>
 							         {{ field }}
@@ -294,7 +329,7 @@
 									<div class="col s2"></div>
 									<div class="col s8">
 									<p class="center">PREVIEW:</p>
-									<img  id="img_id" src="#" width="300px" style="float:middle" height="200px" /><br/><br/>
+									<img  id="img_id" src="#"  style="float:middle;width:300px;height:200px"  /><br/><br/>
 								    <button class="btn waves-effect waves-light" type="submit" name="upload">Submit
 								    <i class="material-icons right">send</i>
 								    </button>
@@ -304,7 +339,7 @@
 								</div>
 							</form>
 						</center>
-
+						<p style="color:#fff;font-size:25px">UPLOAD CONTACTS</p>
 						<center>
 			  				<div id="success_files" style="color:#fff"></div>
 					     	<form id="upload_files" method="post" enctype="multipart/form-data" novalidate>
@@ -316,6 +351,7 @@
 		        					<div class="input-field col s12 m12 l12 ">
 							        {{ field.errors }}
 							        <center>
+							        	<br/><br/>
 							        {{ field.label_tag }}
 									</center>
 							         {{ field }}

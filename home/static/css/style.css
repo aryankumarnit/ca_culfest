@@ -101,9 +101,7 @@ input{
 
 
 @media only screen and (min-width: 501px) {
-	#ins{
-    	display: none;
-    }
+	
     #mob_login{
     	display: none;
     }
@@ -131,9 +129,7 @@ input{
     .card-panel {
     	padding: 12px;
     }
-	#ins{
-    	display: block;
-    }
+	
     #mob_login{
     	display: block;
     }
@@ -153,6 +149,20 @@ input{
     #culfest18{
     	font-size: 25px!important;
     }
+     #tabs-swipe-demo,#tabrow{
+    	height: 400px!important;
+    }
+    #tab1,#tab2,#tab3,#tab4{
+    	height: 100px!important;
+    	border-bottom:2px solid black;
+    }
+    #taba1,#taba2,#taba3,#taba4{
+    	padding-top: 20px!important;
+    }
+    #img_id{
+    	width: 200px;
+    	height: 100px;
+    }
 }
 @media only screen and (max-width: 359px) {
 	  .container {
@@ -162,9 +172,7 @@ input{
     	padding: 0px;
     }
 
-    #ins{
-    	display: block;
-    }
+   
     #mob_login{
     	display: block;
     }
@@ -184,5 +192,24 @@ input{
     #culfest18{
     	font-size: 20px!important;
     }
+    #tabs-swipe-demo,#tabrow{
+    	height: 400px!important;
+    }
+    #tab1,#tab2,#tab3,#tab4{
+    	height: 100px!important;
+    	border-bottom:2px solid black; 
+    }
+    #taba1,#taba2,#taba3,#taba4{
+    	padding-top: 20px!important;
+    }
+    #img_id{
+    	width: 200px;
+    	height: 100px;
+    }
+
 }
 
+label{
+	font-size: 18px!important;
+	color:#fff!important;
+}
