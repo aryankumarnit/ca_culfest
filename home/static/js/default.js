@@ -30,7 +30,7 @@ $.ajax({
 
 			$('#clockdiv').css('display','block');
 				var date = new Date();
-				var countDownDate = date.getTime() + (1 * 7 * 60 * 60 * 1000)-(15 *60 *1000) - ((date.getHours()*60*60*1000)+(date.getMinutes()*60*1000)+(date.getSeconds()*1000));
+				var countDownDate = date.getTime() + (7 * 24 * 60 * 60 * 1000) - ((date.getHours()*60*60*1000)+(date.getMinutes()*60*1000)+(date.getSeconds()*1000));
 				//alert(countDownDate);
 				var nowt = new Date().getTime();
 				var distance = countDownDate - nowt;
