@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
+import os
 # Create your models here.
 
 
@@ -58,6 +59,9 @@ class Document(models.Model):
     description = models.CharField(max_length=855, blank=True)
     document = models.FileField(upload_to=user_directory_path)
     uploaded_at = models.DateTimeField(default=timezone.now)
+
+    def filename(self):
+        return os.path.basename(self.document.name)
 
 
 class File(models.Model):

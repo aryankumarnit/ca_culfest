@@ -163,6 +163,10 @@ input{
     	width: 200px!important;
     	height: 100px!important;
     }
+    #img_id1{
+    	width: 200px!important;
+    	height: 100px!important;
+    }
 }
 @media only screen and (max-width: 359px) {
 	  .container {
@@ -206,6 +210,10 @@ input{
     	width: 200px!important;
     	height: 100px!important;
     }
+    #img_id1{
+    	width: 200px!important;
+    	height: 100px!important;
+    }
 
 }
 
@@ -213,3 +221,4 @@ label{
 	font-size: 18px!important;
 	color:#fff!important;
 }
+

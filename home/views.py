@@ -13,7 +13,8 @@ import os
 from django.conf import settings
 from django.http import HttpResponse
 from django.http import Http404
-
+from datetime import timedelta
+from django.utils import timezone
 # Create your views here.
 
 
@@ -24,6 +25,26 @@ def index(request):
 @login_required
 @transaction.atomic
 def base(request):
+    flag1 = False
+    flag2 = False
+    imgfile = ""
+    afterimgfile = ""
+    enddate = ""
+    try:
+        imgfile = Document.objects.filter(user=request.user)[0]
+        newdate = timezone.localtime(imgfile.uploaded_at).date() + timedelta(days=7)
+        enddate = str(newdate.strftime("%B"))
+        enddate = enddate + ' ' + str(newdate.strftime("%d")) + ', 20' + str(newdate.strftime("%y")) + ' 00:00:00'
+        imgfile = imgfile.filename()
+    except Exception:
+        flag1 = True
+
+    try:
+        afterimgfile = Document.objects.filter(user=request.user)[1]
+        afterimgfile = afterimgfile.filename()
+    except Exception:
+        flag2 = True
+
     try:
         profile = request.user.profile
     except ObjectDoesNotExist:
@@ -46,6 +67,7 @@ def base(request):
         if request.POST['hidden'] == 'upload':
             document = Document()
             document.user = request.user
+            # document.uploaded_at = timezone.localtime(timezone.now())
             form = DocumentForm(data=request.POST, files=request.FILES, instance=document)
 
             if form.is_valid():
@@ -112,6 +134,11 @@ def base(request):
         'profile_form': profile_form,
         'form': form,
         'fileform': fileform,
+        'flag1': flag1,
+        'imgfile': imgfile,
+        'flag2': flag2,
+        'afterimgfile': afterimgfile,
+        'enddate': enddate,
     })
 
 

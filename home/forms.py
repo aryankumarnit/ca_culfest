@@ -81,6 +81,7 @@ class DocumentForm(ModelForm):
         }
         widgets = {
             'document': forms.FileInput(attrs={'class': 'imgupload'}),
+            'description': forms.TextInput(attrs={'class': 'desc'}),
         }
 
 

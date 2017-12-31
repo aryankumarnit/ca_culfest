@@ -59,7 +59,10 @@
 				          </div>
 				        </div>
 				      </div>
-					<div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
+					<!--div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
+				    	<i class="material-icons right">cloud_download</i>
+				    </a></div-->
+				    <div class="col s12 m12 l4"><a href="#" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
 				    	<i class="material-icons right">cloud_download</i>
 				    </a></div>
 				</div>
@@ -83,8 +86,8 @@
 		   				<span>CONTACT US</span>
 		    		</a></li>
 		    		<li id="tab4" class="tab col s12 m12 l3" ><a id="taba4" href="#test-swipe-4">
-		   				<img src="{% static "images/file.png" %}" class="image_icon" />
-		   				<span>UPLOAD FILES</span>
+		   				<img src="{% static "images/screenshot.png" %}" class="image_icon" />
+		   				<span>UPLOAD SCREENSHOT</span>
 		    		</a></li>
 	    		</div>
 	  		</ul>
@@ -304,9 +307,11 @@
 
 			     <div id="test-swipe-4" class="col s12 m12 l12 grey">
 			     	<div class="container custom center">
-						<p style="color:#fff;font-size:25px">UPLOAD SCREENSHOT</p>
 			  			<center>
-			  				<div id="success_message" style="color:#fff"></div>
+			  				<br/><br/>
+			  				<div id="success_message" style="color:#fff;font-size:25px">UPLOAD FIRST SCREENSHOT</div>
+			  				{% if flag1 %}
+			  				
 					     	<form id="upload_form" method="post" enctype="multipart/form-data" novalidate>
 					     		<input type="hidden" name="hidden" value="upload"/>
 							    {% csrf_token %}
@@ -325,21 +330,90 @@
 							    <br/>
 							
 								{% endfor %}
+								{% endif %}
 								<div class="row">
 									<div class="col s2"></div>
 									<div class="col s8">
-									<p class="center">PREVIEW:</p>
+									<p class="center">PREVIEW:&nbsp;&nbsp;FIRST SCREENSHOT</p>
 									<img  id="img_id" src="#"  style="float:middle;width:300px;height:200px"  /><br/><br/>
-								    <button class="btn waves-effect waves-light" type="submit" name="upload">Submit
+									{% if flag1 %}
+								    <button id="upload1" class="btn waves-effect waves-light" type="submit" name="upload">Submit
 								    <i class="material-icons right">send</i>
 								    </button>
+								    {% endif %}
+								    <br/>
+								    </div>
+								    <div class="col s2"></div>
+								</div>
+							</form>
+						</center>
+						<hr>
+						<br/>
+						<div id="success_message1" style="color:#fff;font-size:25px">UPLOAD FINAL SCREENSHOT</div>
+						<br/><br/>
+						<div id="clockdiv" class="row" style="display:none">
+						<br/>
+						<br/>
+						  <div  class="s12 m12 l12 center">
+						  	<div class="col s2" style="color:transparent">#</div>
+						    <span class="days col s2" ></span>
+						    <span class="hours col s2" ></span>
+						    <span class="minutes col s2" ></span>
+						    <span class="seconds col s2"></span>
+							<div class="col s2" style="color:transparent;">#</div>
+							
+							<div class="col s2" style="color:transparent;">#</div>
+							<span class="col s2">DAYS</span>
+							<span class="col s2">HRS</span>
+							<span class="col s2">MINS</span>
+							<span class="col s2">SECS</span>
+							<div class="col s2" style="color:transparent;">#</div>
+						  </div>
+						  <br/>
+						  <br/>
+						<br/>
+						<br/>
+						</div>
+						
+						<center>
+							{% if flag2 %}
+					     	<form id="upload_form1" method="post" enctype="multipart/form-data" novalidate>
+					     		<input type="hidden" name="hidden" value="upload"/>
+							    {% csrf_token %}
+							    {% for field in form %}
+							 	
+							    <div class="row">
+		        					<div class="input-field col s12 m12 l12 ">
+							        {{ field.errors }}
+							        <center>
+							        	<br/><br/>
+							        {{ field.label_tag }}
+									</center>
+							         {{ field }}
+							    	</div>
+							    </div>
+							    <br/>
+							
+								{% endfor %}
+								{% endif %}
+								<div class="row">
+									<div class="col s2"></div>
+									<div class="col s8">
+									<p class="center">PREVIEW:&nbsp;&nbsp;FINAL SCREENSHOT</p>
+									<img  id="img_id1" src="#"  style="float:middle;width:300px;height:200px"  /><br/><br/>
+									{% if flag2  %}
+								    <button id="upload2" class="btn waves-effect waves-light" type="submit" name="upload" disabled>Submit
+								    <i class="material-icons right">send</i>
+								    </button>
+								    {% endif %}
 								    <br/><br/>
 								    </div>
 								    <div class="col s2"></div>
 								</div>
 							</form>
 						</center>
-						<p style="color:#fff;font-size:25px">UPLOAD CONTACTS</p>
+
+						<!--p style="color:#fff;font-size:25px">UPLOAD CONTACTS</p>
 						<center>
 			  				<div id="success_files" style="color:#fff"></div>
 					     	<form id="upload_files" method="post" enctype="multipart/form-data" novalidate>
@@ -371,7 +445,7 @@
 								    <div class="col s2"></div>
 								</div>
 							</form>
-						</center>
+						</center-->
 					</div>
 			    </div>
 		    
@@ -384,7 +458,79 @@
 		
 		{% load staticfiles %}
 		<script type="text/javascript" src={% static "js/default.js" %}></script>
-		
+		<script>
+
+			function getTimeRemaining(endtime) {
+			  var t = Date.parse(endtime) - Date.parse(new Date());
+			  var seconds = Math.floor((t / 1000) % 60);
+			  var minutes = Math.floor((t / 1000 / 60) % 60);
+			  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+			  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+			  return {
+			    'total': t,
+			    'days': days,
+			    'hours': hours,
+			    'minutes': minutes,
+			    'seconds': seconds
+			  };
+			}
+
+			function initializeClock(id, endtime) {
+			  var clock = document.getElementById(id);
+			  var daysSpan = clock.querySelector('.days');
+			  var hoursSpan = clock.querySelector('.hours');
+			  var minutesSpan = clock.querySelector('.minutes');
+			  var secondsSpan = clock.querySelector('.seconds');
+
+			  function updateClock() {
+			    var t = getTimeRemaining(endtime);
+
+			    daysSpan.innerHTML = t.days + ' : ';
+			    hoursSpan.innerHTML = ('0' + t.hours).slice(-2) + ' : ';
+			    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2) + ' : ';
+			    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+			    if (t.total <= 0) {
+			      $('#success_message1').html('PLEASE UPLOAD FINAL SCREENSHOT.. ONE WEEK TIME IS OVER..');
+			      $('#upload2').prop('disabled', false);
+			      $('#clockdiv').css('display','none');
+			      clearInterval(timeinterval);
+			    }
+			  }
+
+			  updateClock();
+			  var timeinterval = setInterval(updateClock, 1000);
+			}
+			
+			$('#upload1').click(function(){
+				$('#success_message').html('Uploading...Please Wait..');
+			});
+
+			$('#upload2').click(function(){
+				$('#success_message1').html('Uploading...Please Wait..');
+			});
+
+			{% if not flag1 %}
+				$('#upload1').remove();
+				$('#img_id').attr('src', '../media/user_{{request.user.username}}/{{imgfile}}');
+				$('#clockdiv').css('display','block');
+
+			var countDownDate = new Date("{{enddate}}").getTime();
+			var nowt = new Date().getTime();
+			var distance = countDownDate - nowt;
+			var deadline = new Date(Date.parse(new Date()) + distance);
+			initializeClock('clockdiv', deadline);
+
+			{% endif %}
+			{% if not flag2 %}
+				$('#img_id1').attr('src', '../media/user_{{request.user.username}}/{{afterimgfile}}');
+				$('#upload2').remove();
+				$('#clockdiv').css('display','none');
+			{% endif %}
+
+			
+
+		</script>
 
 	</body>
 
