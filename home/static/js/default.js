@@ -99,6 +99,6 @@ $(function() {
 			});
 
 
-
+			$("label[for=id_document]").hide();
 
 });
