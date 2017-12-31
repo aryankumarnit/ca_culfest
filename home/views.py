@@ -51,32 +51,33 @@ def base(request):
         profile = Profile(user=request.user)
 
     if request.method == 'POST':
-        if request.POST['hidden'] == 'files':
-            file = File()
-            file.user = request.user
-            fileform = FileForm(data=request.POST, files=request.FILES, instance=file)
+        if 'hidden' in request.POST:
+            if request.POST['hidden'] == 'files':
+                file = File()
+                file.user = request.user
+                fileform = FileForm(data=request.POST, files=request.FILES, instance=file)
 
-            if fileform.is_valid():
-                fileform.save()
-                data = {
-                    'result': 'success',
-                    'message': 'Contact uploaded successfully!!',
-                }
-                return JsonResponse(data)
+                if fileform.is_valid():
+                    fileform.save()
+                    data = {
+                        'result': 'success',
+                        'message': 'Contact uploaded successfully!!',
+                    }
+                    return JsonResponse(data)
 
-        if request.POST['hidden'] == 'upload':
-            document = Document()
-            document.user = request.user
-            # document.uploaded_at = timezone.localtime(timezone.now())
-            form = DocumentForm(data=request.POST, files=request.FILES, instance=document)
+            if request.POST['hidden'] == 'upload':
+                document = Document()
+                document.user = request.user
+                # document.uploaded_at = timezone.localtime(timezone.now())
+                form = DocumentForm(data=request.POST, files=request.FILES, instance=document)
 
-            if form.is_valid():
-                form.save()
-                data = {
-                    'result': 'success',
-                    'message': 'Image uploaded successfully!!',
-                }
-                return JsonResponse(data)
+                if form.is_valid():
+                    form.save()
+                    data = {
+                        'result': 'success',
+                        'message': 'Image uploaded successfully!!',
+                    }
+                    return JsonResponse(data)
 
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, instance=profile)

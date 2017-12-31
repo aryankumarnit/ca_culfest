@@ -28,6 +28,15 @@
 	</head>
 
 	<body class="style-14">
+
+	<div id="loader-wrapper">
+			  <div id="loader"></div>
+			  
+			  <div class="loader-section section-left"></div>
+			  <div class="loader-section section-right"></div>
+			  
+	</div>
+
 	{% load static %}
 		<div class="row">
 			<div class="col l1 "></div>
@@ -460,6 +469,11 @@
 		<script type="text/javascript" src={% static "js/default.js" %}></script>
 		<script>
 
+			$(window).on("load", function() {
+				    $('body').addClass('loaded');
+				});
+
+			$(document).ready(function() {
 			function getTimeRemaining(endtime) {
 			  var t = Date.parse(endtime) - Date.parse(new Date());
 			  var seconds = Math.floor((t / 1000) % 60);
@@ -529,7 +543,7 @@
 			{% endif %}
 
 			
-
+		});
 		</script>
 
 	</body>

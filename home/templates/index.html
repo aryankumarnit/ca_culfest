@@ -18,6 +18,11 @@
 		}
 		</style>
 		<script type="text/javascript">
+
+			$(window).on("load", function() {
+				    $('body').addClass('loaded');
+				});
+
 			 $(document).ready(function(){
 
 			    $('.modal').modal();
@@ -27,6 +32,17 @@
 	</head>
 	
 	<body class="style-14">
+
+
+
+			<div id="loader-wrapper">
+			  <div id="loader"></div>
+			  
+			  <div class="loader-section section-left"></div>
+			  <div class="loader-section section-right"></div>
+			  
+			</div>
+
 
 			<a id="logins" href="{% url 'social:begin' 'facebook' %}" class="waves-effect waves-light btn-large " style="font-weight:bold;letter-spacing:0.2rem;position:absolute;top:20px;right:10px;background-color:rgba(255,255,255,0.2)">Facebook Login</a>
 			<a id="guides" href="#modal1" class="waves-effect waves-light btn-large modal-trigger " style="font-weight:bold;letter-spacing:0.2rem;position:absolute;top:20px;left:10px;background-color:rgba(255,255,255,0.2)">Guidelines</a>
