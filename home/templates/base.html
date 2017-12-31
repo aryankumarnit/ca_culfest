@@ -71,8 +71,8 @@
 					<!--div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
 				    	<i class="material-icons right">cloud_download</i>
 				    </a></div-->
-				    <div class="col s12 m12 l4"><a href="#" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
-				    	<i class="material-icons right">cloud_download</i>
+				    <div class="col s12 m12 l4"><a href="{% url "home:uploadfile" %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download" target="_blank">UPLOAD CONTACTS
+				    	<i class="material-icons right">cloud_upload</i>
 				    </a></div>
 				</div>
 			</div>
@@ -318,9 +318,11 @@
 			     	<div class="container custom center">
 			  			<center>
 			  				<br/><br/>
-			  				<div id="success_message" style="color:#fff;font-size:25px">UPLOAD FIRST SCREENSHOT</div>
+			  				<div  style="color:#fff;font-size:25px">UPLOAD FIRST SCREENSHOT</div>
 			  				{% if flag1 %}
-			  				
+							<br/>
+			  				<div id="success_message" style="color:#fff;font-size:25px"></div>
+			  				<br/><br/>
 					     	<form id="upload_form" method="post" enctype="multipart/form-data" novalidate>
 					     		<input type="hidden" name="hidden" value="upload"/>
 							    {% csrf_token %}
@@ -358,8 +360,12 @@
 						</center>
 						<hr>
 						<br/>
-						<div id="success_message1" style="color:#fff;font-size:25px">UPLOAD FINAL SCREENSHOT</div>
+						<div  style="color:#fff;font-size:25px">UPLOAD FINAL SCREENSHOT</div>
 						<br/><br/>
+						{% if flag2 %}
+							<div id="success_message1" style="color:#fff;font-size:25px"></div>
+							<br/><br/>
+						{% endif %}
 						<div id="clockdiv" class="row" style="display:none">
 						<br/>
 						<br/>
@@ -526,6 +532,7 @@
 
 			{% if not flag1 %}
 				$('#upload1').remove();
+				$('#success_message1').html('AFTER:');
 				$('#img_id').attr('src', '../media/user_{{request.user.username}}/{{imgfile}}');
 				$('#clockdiv').css('display','block');
 

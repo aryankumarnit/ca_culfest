@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	
+		<title>UPLOAD CONTACT</title>
+		{% include "head.html" %}
+		{% load static %}
+	</head>
+	
+	<body class="style-14" style="background-color:rgba(0,0,0,0.3)">
+		<div class="container custom center">
+					<center>
+						<p style="color:#fff;font-size:35px;font-weight:bold">UPLOAD CONTACTS</p>
+						<br/>
+						<br/>
+
+							<div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
+					    	<i class="material-icons right">cloud_download</i>
+					    	</a></div>
+
+				    	<br/>
+				    	<br/>
+			  				<div id="success_files" style="color:#fff;font-size:25px"></div>
+					     	<form id="upload_files" method="post" enctype="multipart/form-data" novalidate>
+					     		<input type="hidden" name="hidden" value="files"/>
+							    {% csrf_token %}
+							    {% for field in fileform %}
+							 	
+							    <div class="row">
+		        					<div class="input-field col s12 m12 l12 ">
+							        {{ field.errors }}
+							        <center>
+							        	<br/><br/>
+							        {{ field.label_tag }}
+									</center>
+							         {{ field }}
+							    	</div>
+							    </div>
+							    <br/>
+								
+								{% endfor %}
+								<div class="row">
+									<div class="col s2"></div>
+									<div class="col s8">
+										<br/>
+								    <button id="filesubmit" class="btn waves-effect waves-light" type="submit" name="files">Submit
+								    <i class="material-icons right">send</i>
+								    </button>
+								    <br/><br/>
+								    </div>
+								    <div class="col s2"></div>
+								</div>
+							</form>
+					</center>
+			</div>
+
+			<script type="text/javascript">
+
+				function fileupload(event) {
+
+					event.preventDefault();
+					var data = new FormData($('#upload_files').get(0));
+
+					$.ajax({
+					    url: $(this).attr('action'),
+					    type: $(this).attr('method'),
+					    data: data,
+					    cache: false,
+					    processData: false,
+					    contentType: false,
+					    success: function(data) {
+					    	 if(data['result']=="success")
+					         {
+					         	$('#success_files').html(data['message']);
+					         }
+					     	 else
+					     	 $('#success_files').html("Error Uploading Contact");
+					    }
+					});
+					return false;
+					}
+
+					$(function() {
+					    $('#upload_files').submit(fileupload);
+					});
+
+
+					$('#filesubmit').click(function(){
+						$('#success_files').html("Uploading contact... Please Wait...");
+					});
+
+					$("label[for=id_document]").hide();
+
+			</script>
+	</body>
+
+</html>

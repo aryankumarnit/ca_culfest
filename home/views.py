@@ -52,18 +52,6 @@ def base(request):
 
     if request.method == 'POST':
         if 'hidden' in request.POST:
-            if request.POST['hidden'] == 'files':
-                file = File()
-                file.user = request.user
-                fileform = FileForm(data=request.POST, files=request.FILES, instance=file)
-
-                if fileform.is_valid():
-                    fileform.save()
-                    data = {
-                        'result': 'success',
-                        'message': 'Contact uploaded successfully!!',
-                    }
-                    return JsonResponse(data)
 
             if request.POST['hidden'] == 'upload':
                 document = Document()
@@ -129,12 +117,10 @@ def base(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
         form = DocumentForm()
-        fileform = FileForm()
     return render(request, 'base.html', {
         'user_form': user_form,
         'profile_form': profile_form,
         'form': form,
-        'fileform': fileform,
         'flag1': flag1,
         'imgfile': imgfile,
         'flag2': flag2,
@@ -205,6 +191,7 @@ def logout(request):
     return render(request, 'index.html')
 
 
+@login_required
 def download(request):
     file_path = os.path.join(settings.MEDIA_ROOT, "ca_culfest.xlsx")
     if os.path.exists(file_path):
@@ -213,3 +200,27 @@ def download(request):
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
             return response
     raise Http404
+
+
+@login_required
+def uploadfile(request):
+    if request.method == 'POST':
+        if 'hidden' in request.POST:
+            if request.POST['hidden'] == 'files':
+                file = File()
+                file.user = request.user
+                fileform = FileForm(data=request.POST, files=request.FILES, instance=file)
+
+                if fileform.is_valid():
+                    fileform.save()
+                    data = {
+                        'result': 'success',
+                        'message': 'Contact uploaded successfully!!',
+                    }
+                    return JsonResponse(data)
+    else:
+
+        fileform = FileForm()
+        return render(request, 'uploadfile.html', {
+            'fileform': fileform,
+        })

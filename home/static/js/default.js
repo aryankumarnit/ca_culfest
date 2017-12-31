@@ -27,6 +27,7 @@ $.ajax({
          	$(".desc:eq(0)").remove();
          	$('input[type=file]:eq(0)').remove();
          	$('#upload1').remove();
+         	$('#success_message1').html('AFTER:');
 
 			$('#clockdiv').css('display','block');
 				var date = new Date();
@@ -98,36 +99,6 @@ $(function() {
 			});
 
 
-function fileupload(event) {
-event.preventDefault();
-var data = new FormData($('#upload_files').get(0));
 
-$.ajax({
-    url: $(this).attr('action'),
-    type: $(this).attr('method'),
-    data: data,
-    cache: false,
-    processData: false,
-    contentType: false,
-    success: function(data) {
-    	 if(data['result']=="success")
-         {
-         	$('#success_files').html(data['message']);
-         }
-     	 else
-     	 $('#success_files').html("Error Uploading Contact");
-    }
-});
-return false;
-}
-
-$(function() {
-    $('#upload_files').submit(fileupload);
-});
-
-
-
-
-$("label[for=id_document]").hide();
 
 });
