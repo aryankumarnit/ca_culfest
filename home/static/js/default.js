@@ -25,9 +25,10 @@ $.ajax({
          	$('#success_message').html(data['message']);
          	$("label[for='id_description']:eq(0)").remove();
          	$(".desc:eq(0)").remove();
-         	$('input[type=file]:eq(0)').remove();
+         	$('input[type=file]:eq(0)').hide();
          	$('#upload1').remove();
-         	$('#success_message1').html('AFTER:');
+            $('#img_idp').remove();
+         	$('#success_message1').html('WITHIN:');
 
 			$('#clockdiv').css('display','block');
 				var date = new Date();
@@ -65,10 +66,12 @@ $.ajax({
          {
          	$('#success_message1').html(data['message']);
          	$(".desc:eq(0)").remove();
-         	$("label[for='id_description']:eq(0)").remove();
-         	$('input[type=file]:eq(0)').remove();
+         	$("label[for='id_description']:eq(0)").hide();
+         	$('input[type=file]:eq(0)').hide();
          	$('#upload1').remove();
 			$('#upload2').remove();
+            $('#img_idp1').remove();
+            $('#clockdiv').css('display','none');
          }
      	 else
      	 $('#success_message').html("Error Uploading Image");
@@ -89,9 +92,15 @@ $(function() {
 
 			                reader.onload = function (e) {
 			                	if($('.imgupload:eq(1)').length>0)
+                                {
+                                    $('#img_id').css('display','block');
 			                		$('#img_id').attr('src', e.target.result);
+                                }
 			                	else
-			                    $('#img_id1').attr('src', e.target.result);
+                                {
+                                    $('#img_id1').css('display','block');
+			                         $('#img_id1').attr('src', e.target.result);
+                                }
 			                }
 
 			                reader.readAsDataURL(this.files[0]);
@@ -100,5 +109,6 @@ $(function() {
 
 
 			$("label[for=id_document]").hide();
+
 
 });

@@ -44,9 +44,7 @@
 				<div class="row">
 
 					
-					<div class="col s12 m12 l4 "><a href="{% url 'logout' %}" class="btn waves-effect waves-light left" style="background-color:rgba(0,0,0,0.5)" name="logout">Logout
-				    	<i class="material-icons right">send</i>
-				    </a></div>
+					<div class="col s12 m12 l4 "></div>
 					<div class="col s12 m12 l4"  >
 				        <div class="card-panel grey lighten-5 z-depth-1" >
 				          <div class="row valign-wrapper">
@@ -63,6 +61,7 @@
 				               <span style="float:left;font-size:15px;padding-top:0.1rem;font-weight:bold;font-size:18px">CFID: <span style="font-weight:lighter;">{{request.user.profile.serialno}}</span></span><br/>
 				               <!--span style="float:left;font-size:15px">SCORE: <span style="font-weight:lighter;">NA</span></span>&nbsp<br/>
 				               <span style="float:left;font-size:15px">RANK: <span style="font-weight:lighter;">NA</span></span-->
+
 				              
 				            </div>
 				          </div>
@@ -71,8 +70,8 @@
 					<!--div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
 				    	<i class="material-icons right">cloud_download</i>
 				    </a></div-->
-				    <div class="col s12 m12 l4"><a href="{% url "home:uploadfile" %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download" target="_blank">UPLOAD CONTACTS
-				    	<i class="material-icons right">cloud_upload</i>
+				    <div class="col s12 m12 l4 "><a href="{% url 'logout' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="logout">Logout
+				    	<i class="material-icons right">send</i>
 				    </a></div>
 				</div>
 			</div>
@@ -82,21 +81,25 @@
 			
 			<ul style="height:60px" id="tabs-swipe-demo" class="col s12 m12 l12 tabs">
 				<div id="tabrow" class="row style-14">
-		   			<li id="tab1" class="tab col s12 m12 l3 " ><a id="taba1" class="active" href="#test-swipe-1">
-		   				<img src="{% static "images/fb_share.png" %}" class="image_icon" />
-		   				<span>FACEBOOK SHARE</span>
+		   			<li id="tab1" class="tab col s12 m12 l2 " ><a id="taba1" class="active" href="#test-swipe-1">
+		   				
+		   				<span><b>FACEBOOK SHARE</b></span>
 		   				</a></li>
-		    		<li id="tab2" class="tab col s12 m12 l3" ><a id="taba2"  href="#test-swipe-2">
-		   				<img src="{% static "images/settings.png" %}" class="image_icon" />
-		   				<span>ACCOUNT SETTINGS</span>
+		    		<li id="tab2" class="tab col s12 m12 l3" ><a id="taba2"  href={% url "home:uploadfile" %} target="_blank">
+		   				
+		   				<span><b>UPLOAD CONTACTS</b></span>
 		    		</a></li>
-		    		<li id="tab3" class="tab col s12 m12 l3" ><a id="taba3" href="#test-swipe-3">
-		   				<img src="{% static "images/contacts.png" %}" class="image_icon" />
-		   				<span>CONTACT US</span>
+		    		<li id="tab3" class="tab col s12 m12 l2" ><a id="taba3" href="#test-swipe-3">
+		   				
+		   				<span><b>UPLOAD SCREENSHOT</b></span>
 		    		</a></li>
-		    		<li id="tab4" class="tab col s12 m12 l3" ><a id="taba4" href="#test-swipe-4">
-		   				<img src="{% static "images/screenshot.png" %}" class="image_icon" />
-		   				<span>UPLOAD SCREENSHOT</span>
+		    		<li id="tab5" class="tab col s12 m12 l3" ><a id="taba5"  href="#test-swipe-5">
+		   				
+		   				<span><b>ACCOUNT SETTINGS</b></span>
+		    		</a></li>
+		    		<li id="tab4" class="tab col s12 m12 l2" ><a id="taba4" href="#test-swipe-4">
+		   				
+		   				<span><b>CONTACT US</b></span>
 		    		</a></li>
 	    		</div>
 	  		</ul>
@@ -111,7 +114,7 @@
 		      					</div>
 		      			</center>
 		      			<center>
-		      			<a href="https://www.facebook.com/utk.nitjsr/photos/a.260141984089336.40803.260118660758335/1240035359433322/?type=3" target="_blank"><img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:90px;height:90px;bottom:60px;left:110px;background-color:#fff" /></a>
+		      			<a href="https://www.facebook.com/utk.nitjsr/photos/a.260141984089336.40803.260118660758335/1240035359433322/?type=3" target="_blank"><img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:40px;height:40px;bottom:60px;left:110px;background-color:#fff" /></a>
 		      			</center>
 		      			<br />
 		      			<br />
@@ -121,7 +124,7 @@
 		      					</div>
 		      			</center>
 		      			<center>
-		      			<a href="https://www.facebook.com/utk.nitjsr/photos/a.260141984089336.40803.260118660758335/1240035359433322/?type=3" target="_blank"><img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:90px;height:90px;bottom:60px;left:110px;background-color:#fff" /></a>
+		      			<a href="https://www.facebook.com/utk.nitjsr/photos/a.260141984089336.40803.260118660758335/1240035359433322/?type=3" target="_blank"><img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:40px;height:40px;bottom:60px;left:110px;background-color:#fff" /></a>
 		      			</center>
 		      			<br />
 		      			<br />
@@ -130,7 +133,7 @@
 		      					data-width="250" data-show-text="false"></div>
 		      			</center>
 		      			<center>
-		      			<a href="https://www.facebook.com/utk.nitjsr/photos/a.260131447423723.40797.260118660758335/1234688386634686/?type=3" target="_blank"><img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:90px;height:90px;bottom:60px;left:110px;background-color:#fff" /></a>
+		      			<a href="https://www.facebook.com/utk.nitjsr/photos/a.260131447423723.40797.260118660758335/1234688386634686/?type=3" target="_blank"><img class="circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAtMzg0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0wLDM4OCBMNi43NSwzODggTDQuMjUsMzkwIEwyLDM5MCBMMiwzOTcgTDEyLDM5NyBMMTIsMzk1IEwxNCwzOTMuNCBMMTQsMzk5IEwwLDM5OSBaIE0xNiwzOTAgTDExLDM5NCBMMTEsMzkyLjAwODI4OSBDNy42NjczODg2NywzOTEuODg4MDAxIDUuNjYxMDY3NjgsMzkzLjM3MjkxIDMuOTY2ODU3OTEsMzk1LjAyMzA3MSBDMy45NjY4NTc5MSwzOTEuMTAwNzQ3IDcuNDYwNDU5MzcsMzg4LjAxMTM0MiAxMSwzODcuOTc2Nzk0IEwxMSwzODYgWiBNMTYsMzkwIiBpZD0iUmVjdGFuZ2xlIDIwNCBjb3B5Ii8+PC9nPjwvZz48L3N2Zz4=" style="position:relative;width:40px;height:40px;bottom:60px;left:110px;background-color:#fff" /></a>
 		      			</center>
 		      			<br/>
 		      			<br/>
@@ -151,7 +154,7 @@
     				</script-->
 
 		  		</div>
-			    <div id="test-swipe-2" class="col s12 m12 l12 grey">
+			    <div id="test-swipe-5" class="col s12 m12 l12 grey">
 			    <div class="container" style="height:1270px;background-color: rgba(0,0,0,0.5);padding:20px;">
 			  			<center>
 			    	<div id="success_div" style="color:#fff"></div>
@@ -206,7 +209,7 @@
 
 				</div>
 			    </div>
-			    <div id="test-swipe-3" class="col s12 m12 l12 grey">
+			    <div id="test-swipe-4" class="col s12 m12 l12 grey">
 			    	<div class="container custom">
 			    		<br/>
 				    	<div class="row">
@@ -250,6 +253,7 @@
 					            	<div class="card-content center">
 					              		<p><b>RAJIV KUMAR</b></p>
 					              		<P>JOINT SECRETARY</P>
+					              		<P>jointsec.cf@nitjsr.ac.in</P>
 					              		<P>+91 95700 40029</P>
 					              		<P></P>
 					            	</div>
@@ -314,11 +318,26 @@
 					</div>
 			    </div>
 
-			     <div id="test-swipe-4" class="col s12 m12 l12 grey">
-			     	<div class="container custom center">
+			     <div id="test-swipe-3" class="col s12 m12 l12 grey">
+			     	<div class="container custom center" style="color:#fff">
+			     		<br/>
+			     		<p><h5>Initial Stage –</h5>
+UPLOAD SCREENSHOT <br/>
+Your PROFILE NAME must be CLEARLY VISIBLE and should not be blurred.<br/>
+The number of your Facebook friends who like the CULFEST18 page must be CLEARLY VISIBLE .<br/>
+As soon as you upload the screenshot , the timer would start itself for a week (7 days complete).<br/>
+<h5>Final Stage –</h5>
+UPLOAD SCREENSHOT <br/>
+This screenshot must be uploaded STRICTLY WITHIN A WEEK of the timer begins.<br/>
+Your PROFILE NAME must be CLEARLY VISIBLE and should not be blurred. Failing to do so would result in elimination and cancellation of your entry.<br/>
+The number of your Facebook friends who like the CULFEST18 page must be CLEARLY VISIBLE .<br/>
+The difference in the number of Facebook friends likes between the INITAL STAGE UPLOAD and FINAL STAGE UPLOAD would be counted and rewarded against your name and so will the following equivalent points would be credited to your account.<br/>
+SO BEGIN USING YOUR CONTACTS AND YOUR DIGITAL FRIENDSLIST FOR A GOOD AND PROFIT REASONS.<br/></p>
 			  			<center>
 			  				<br/><br/>
-			  				<div  style="color:#fff;font-size:25px">UPLOAD FIRST SCREENSHOT</div>
+			  				<div  style="color:#fff;font-size:25px">UPLOAD INITIAL SCREENSHOT</div>
+			  				<br/>
+			  				<img  id="img_idp" src="{% static "images/preview.png" %}"  style="float:middle;width:400px;height:200px;"  />
 			  				{% if flag1 %}
 							<br/>
 			  				<div id="success_message" style="color:#fff;font-size:25px"></div>
@@ -332,7 +351,6 @@
 		        					<div class="input-field col s12 m12 l12 ">
 							        {{ field.errors }}
 							        <center>
-							        	<br/><br/>
 							        {{ field.label_tag }}
 									</center>
 							         {{ field }}
@@ -345,8 +363,8 @@
 								<div class="row">
 									<div class="col s2"></div>
 									<div class="col s8">
-									<p class="center">PREVIEW:&nbsp;&nbsp;FIRST SCREENSHOT</p>
-									<img  id="img_id" src="#"  style="float:middle;width:300px;height:200px"  /><br/><br/>
+									<p class="center">PREVIEW:&nbsp;&nbsp;INITIAL SCREENSHOT</p>
+									<img  id="img_id" src="#"  style="float:middle;width:300px;height:200px;display:none"  /><br/><br/>
 									{% if flag1 %}
 								    <button id="upload1" class="btn waves-effect waves-light" type="submit" name="upload">Submit
 								    <i class="material-icons right">send</i>
@@ -362,6 +380,7 @@
 						<br/>
 						<div  style="color:#fff;font-size:25px">UPLOAD FINAL SCREENSHOT</div>
 						<br/><br/>
+						<img  id="img_idp1" src="{% static "images/preview1.jpg" %}"  style="float:middle;width:400px;height:200px;"  />
 						{% if flag2 %}
 							<div id="success_message1" style="color:#fff;font-size:25px"></div>
 							<br/><br/>
@@ -401,7 +420,7 @@
 		        					<div class="input-field col s12 m12 l12 ">
 							        {{ field.errors }}
 							        <center>
-							        	<br/><br/>
+							        	
 							        {{ field.label_tag }}
 									</center>
 							         {{ field }}
@@ -415,9 +434,9 @@
 									<div class="col s2"></div>
 									<div class="col s8">
 									<p class="center">PREVIEW:&nbsp;&nbsp;FINAL SCREENSHOT</p>
-									<img  id="img_id1" src="#"  style="float:middle;width:300px;height:200px"  /><br/><br/>
+									<img  id="img_id1" src="#"  style="float:middle;width:300px;height:200px;display:none"  /><br/><br/>
 									{% if flag2  %}
-								    <button id="upload2" class="btn waves-effect waves-light" type="submit" name="upload" disabled>Submit
+								    <button id="upload2" class="btn waves-effect waves-light" type="submit" name="upload">Submit
 								    <i class="material-icons right">send</i>
 								    </button>
 								    {% endif %}
@@ -511,8 +530,8 @@
 			    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
 			    if (t.total <= 0) {
-			      $('#success_message1').html('PLEASE UPLOAD FINAL SCREENSHOT.. ONE WEEK TIME IS OVER..');
-			      $('#upload2').prop('disabled', false);
+			      $('#success_message1').html('SORRY,ONE WEEK TIME IS OVER..');
+			      $('#upload2').prop('disabled', true);
 			      $('#clockdiv').css('display','none');
 			      clearInterval(timeinterval);
 			    }
@@ -532,9 +551,11 @@
 
 			{% if not flag1 %}
 				$('#upload1').remove();
-				$('#success_message1').html('AFTER:');
+				$('#success_message1').html('WITHIN:');
+				$('#img_id').css('display','block');
 				$('#img_id').attr('src', '../media/user_{{request.user.username}}/{{imgfile}}');
 				$('#clockdiv').css('display','block');
+				$('#img_idp').remove();
 
 			var countDownDate = new Date("{{enddate}}").getTime();
 			var nowt = new Date().getTime();
@@ -544,12 +565,22 @@
 
 			{% endif %}
 			{% if not flag2 %}
+				$('#img_id1').css('display','block');
 				$('#img_id1').attr('src', '../media/user_{{request.user.username}}/{{afterimgfile}}');
 				$('#upload2').remove();
 				$('#clockdiv').css('display','none');
+				$('#img_idp1').remove();
 			{% endif %}
 
 			
+
+			{% if flag1 and flag2 %}
+				$('#success_message1').hide();
+				$('#success_message').hide();
+				
+			{% endif %}
+
+			 $("label[for=id_description]").hide();
 
 		</script>
 

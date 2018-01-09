@@ -6,16 +6,28 @@
 		<title>UPLOAD CONTACT</title>
 		{% include "head.html" %}
 		{% load static %}
+		
 	</head>
 	
 	<body class="style-14" style="background-color:rgba(0,0,0,0.3)">
-		<div class="container custom center">
+		<div class="container custom center" style="color:#fff">
+			
 					<center>
+						<br/>
+<p><h5>GUIDELINES:</h5></p>
+					<p>
+					<b>Participant Contacts</b>: Send in contacts of people who could possibly attend the fest or help others attend the fest. Under this tab you have to upload an excel sheet with the mentioned fields as in the sample sheet.<br/>
+					<b>Professional Contacts</b>: Send in contacts of potential small and big organizations (includes Media contacts: Newspapers, TV and Radio Channels, etc; Potential Sponsor Contacts, Performers Contacts, etc) in your region which could possibly get things to a whole new level<br/><br/>
+					To submit multiple contacts at once, simply fill up the details in an Excel spreadsheet and upload it.
+						<br/>
+					</p>
+
+
 						<p style="color:#fff;font-size:35px;font-weight:bold">UPLOAD CONTACTS</p>
 						<br/>
 						<br/>
 
-							<div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light right" style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
+							<div class="col s12 m12 l4"><a href="{% url 'home:download' %}" class="btn waves-effect waves-light " style="background-color:rgba(0,0,0,0.5)" name="download">Download Excel
 					    	<i class="material-icons right">cloud_download</i>
 					    	</a></div>
 
@@ -91,7 +103,7 @@
 					});
 
 					$("label[for=id_document]").hide();
-
+					 $("label[for=id_description]").hide();
 			</script>
 	</body>
 
