@@ -24,6 +24,9 @@
 			<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5" async></script>
 
 		{% endblock %}
+{% load static %}
+
+<link type="text/css" rel="stylesheet" href={% static "css/bodystyle.css" %} media="screen,projection"/>
 
 	</head>
 
@@ -37,16 +40,16 @@
 			  
 	</div>
 
-	{% load static %}
+	
 		<div class="row">
 			<div class="col l1 "></div>
-			<div class="col s12 m12 l10 " style="background-color:rgba(0,0,0,0.3)">
+			<div class="col s12 m12 l10 " style="background-color:rgba(0,0,0,0)">
 				<div class="row">
 
 					
 					<div class="col s12 m12 l4 "></div>
 					<div class="col s12 m12 l4"  >
-				        <div class="card-panel grey lighten-5 z-depth-1" >
+				        <div class="card-panel  lighten-5 z-depth-1" >
 				          <div class="row valign-wrapper">
 				          	<div class="col s1">
 				            </div>
@@ -104,7 +107,7 @@
 	    		</div>
 	  		</ul>
   			
-		  		<div id="test-swipe-1" class="col s12 m12 l12 grey">
+		  		<div id="test-swipe-1" class="col s12 m12 l12 ">
 		  			<div class="container custom">
 		  				<br />
 		  				<p class="center" style="font-size:30px;color:#fff">LIKE,   COMMENT   AND   SHARE</p><br/>
@@ -154,7 +157,7 @@
     				</script-->
 
 		  		</div>
-			    <div id="test-swipe-5" class="col s12 m12 l12 grey">
+			    <div id="test-swipe-5" class="col s12 m12 l12 ">
 			    <div class="container" style="height:1270px;background-color: rgba(0,0,0,0.5);padding:20px;">
 			  			<center>
 			    	<div id="success_div" style="color:#fff"></div>
@@ -209,13 +212,13 @@
 
 				</div>
 			    </div>
-			    <div id="test-swipe-4" class="col s12 m12 l12 grey">
+			    <div id="test-swipe-4" class="col s12 m12 l12 ">
 			    	<div class="container custom">
 			    		<br/>
 				    	<div class="row">
 				    		
 							<div class="col s12 m12 l4">
-					          	<div class="card" style="height:300px;padding:20px">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
 					            	<div class="card-image">
 					              		<img src="{% static "images/Chetan.jpg" %}" class="responsive-img" style="height:150px" />
 					              		
@@ -230,13 +233,13 @@
 					        </div>
 
 					        <div class="col s12 m12 l4">
-					          	<div class="card" style="height:300px;padding:20px">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
 					            	<div class="card-image">
 					              		<img src="{% static "images/Ajeet.jpeg" %}" class="responsive-img" style="height:150px" />
 					              		
 					            	</div>
 					            	<div class="card-content center">
-					              		<p><b>AJEET GUPTA</b></p>
+					              		<p><b>AJEET KUMAR</b></p>
 					              		<P>PR HEAD</P>
 					              		<P>culsec.sc@nitjsr.ac.in</P>
 					              		<P>+91 85788 90673</P>
@@ -245,7 +248,7 @@
 					        </div>
 
 					        <div class="col s12 m12 l4">
-					          	<div class="card" style="height:300px;padding:20px">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
 					            	<div class="card-image">
 					              		<img src="{% static "images/Rajiv.jpeg" %}" class="responsive-img" style="height:150px" />
 					              		
@@ -267,7 +270,7 @@
 						<div class="row">
 				    		
 					        <div class="col s12 m12 l4">
-					          	<div class="card" style="height:300px;padding:20px">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
 					            	<div class="card-image">
 					              		<img src="{% static "images/Aadersh.jpg" %}" class="responsive-img" style="height:150px" />
 					              		
@@ -282,7 +285,7 @@
 					        </div>
 
 					        <div class="col s12 m12 l4">
-					          	<div class="card" style="height:300px;padding:20px">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
 					            	<div class="card-image">
 					              		<img src="{% static "images/poras1.jpg" %}" class="responsive-img" style="height:150px" />
 					              		
@@ -297,7 +300,27 @@
 					        </div>
 							
 							<div class="col s12 m12 l4">
-					          	<div class="card" style="height:300px;padding:20px">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
+					            	<div class="card-image">
+					              		<img src="{% static "images/Anket1.jpg" %}" class="responsive-img" style="height:150px" />
+					              		
+					            	</div>
+					            	<div class="card-content center">
+					              		<p><b>ANKET GHOSH</b></p>
+					              		<P>PROMOTION HEAD</P>
+					              		<P>+91 7856858527</P>
+					              		<P></P>
+					            	</div>
+					          	</div>
+					        </div>
+							
+
+					    </div>
+
+					    <div class="row">
+							<div class="col s12 m12 l4"></div>
+					    	<div class="col s12 m12 l4">
+					          	<div class="card" style="height:300px;padding:20px;background-color:transparent">
 					            	<div class="card-image">
 					              		<img src="{% static "images/rospic.jpg" %}" class="responsive-img" style="height:150px" />
 					              		
@@ -310,15 +333,14 @@
 					            	</div>
 					          	</div>
 					        </div>
-							
-
+					    	<div class="col s12 m12 l4"></div>
 					    </div>
 
 
 					</div>
 			    </div>
 
-			     <div id="test-swipe-3" class="col s12 m12 l12 grey">
+			     <div id="test-swipe-3" class="col s12 m12 l12 ">
 			     	<div class="container custom center" style="color:#fff">
 			     		<br/>
 			     		<p><h5>Initial Stage –</h5>
